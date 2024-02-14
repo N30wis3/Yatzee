@@ -4,7 +4,13 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            //GameState er true når spillet skal køre og false når det er slukket
+            bool GameState = true;
+
+            while (GameState == true) 
+            {
+            
+            }
         }
     }
 }
