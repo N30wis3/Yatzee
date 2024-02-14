@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YatzeeGame
+namespace YahtzeeGame
 {
     internal class Player
     {
-        public Player() 
-        {
-            
-        }
+        public string Name { get; set; }
+
     }
 }

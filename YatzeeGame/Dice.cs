@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YatzeeGame
+namespace YahtzeeGame
 {
-    internal class Dice
+    public class Dice
     {
+        public int sides { get; set; }
     }
 }
