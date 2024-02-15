@@ -65,16 +65,19 @@ namespace YahtzeeGame
             List<int> Rolls = new List<int>();
             List<int> SavedRolls = new List<int>();
 
+            //Tilføjer 5 tilfældige værdier til listen Rolls
+            Rolls.Add(Dice1.DiceRoll(Dice1.Sides));
+            Rolls.Add(Dice2.DiceRoll(Dice2.Sides));
+            Rolls.Add(Dice3.DiceRoll(Dice3.Sides));
+            Rolls.Add(Dice4.DiceRoll(Dice4.Sides));
+            Rolls.Add(Dice5.DiceRoll(Dice5.Sides));
+
+            
+
             //Kontrol over rul
             for (int i = 2; i > 0; i--)
             {
-                //Tilføjer 5 tilfældige værdier til listen Rolls
-                Rolls.Add(Dice1.DiceRoll(Dice1.Sides));
-                Rolls.Add(Dice2.DiceRoll(Dice2.Sides));
-                Rolls.Add(Dice3.DiceRoll(Dice3.Sides));
-                Rolls.Add(Dice4.DiceRoll(Dice4.Sides));
-                Rolls.Add(Dice5.DiceRoll(Dice5.Sides));
-
+                Rolls.Sort();
                 Console.WriteLine("\n\nDit rul: ");
                 //Printer de fem værdier
                 foreach (int Roll in Rolls)
@@ -120,21 +123,24 @@ namespace YahtzeeGame
                 {
                     Rolls.Add(SavedRoll);
                 }
+                SavedRolls.Clear();
             }
             Console.WriteLine("Dit endelige rul var: ");
+            foreach (int Roll in Rolls) { Console.Write(Roll + " "); }
+
 
         }
 
 
-        static List<int> Rerolls(ref List<int> Rolls, ref Dice Dice1)
+        static void Rerolls(ref List<int> Rolls, ref Dice Dice1)
         {
-            foreach (int Roll in Rolls)
+            List<int> NewRanRoll = new List<int>();
+            for (int i = 0; i < Rolls.Count; i++)
             {
-                Rolls.Add(Dice1.DiceRoll(Dice1.Sides));
-                Rolls.Remove(Roll); 
+                NewRanRoll.Add(Dice1.DiceRoll(Dice1.Sides));
             }
-
-            return Rolls;
+            Rolls.Clear();
+            Rolls = NewRanRoll;
         }
     }
 }
