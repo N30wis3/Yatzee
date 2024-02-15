@@ -9,15 +9,10 @@ namespace YahtzeeGame
         {
             //Skab alle variabler, lister og så videre V
             bool StartPhase = true;
-            bool GameIsOn = false;
             bool Yahtzee = true;
 
 
             int AntalSpillere = 0;
-            int RollSelector = 0;
-
-            List<int> Rolls = new List<int>();
-            List<int> SavedRolls = new List<int>();
 
             //Lav 5 terninger
             Dice Dice1 = new Dice();
@@ -31,7 +26,9 @@ namespace YahtzeeGame
             Dice3.Sides = 6;
             Dice4.Sides = 6;
             Dice5.Sides = 6;
-            //Skab alle variabler, lister og så videre ^
+            //Skab alle variabler
+
+
 
 
 
@@ -51,73 +48,93 @@ namespace YahtzeeGame
                             AntalSpillere = 10;
                         }
                         StartPhase = false;
-                        GameIsOn = true;
                     }
                     catch 
                     { 
                         Console.WriteLine("Ugyldigt antal spillere"); 
                     }
                 }
-                while (GameIsOn == true)
+                RulMedTerningerne(ref Dice1, ref Dice2, ref Dice3, ref Dice4, ref Dice5);
+            }
+        }
+
+        static void RulMedTerningerne(ref Dice Dice1, ref Dice Dice2, ref Dice Dice3, ref Dice Dice4, ref Dice Dice5)
+        {
+            int RollSelector = 0;
+
+            List<int> Rolls = new List<int>();
+            List<int> SavedRolls = new List<int>();
+
+            //Kontrol over rul
+            for (int i = 2; i > 0; i--)
+            {
+                //Tilføjer 5 tilfældige værdier til listen Rolls
+                Rolls.Add(Dice1.DiceRoll(Dice1.Sides));
+                Rolls.Add(Dice2.DiceRoll(Dice2.Sides));
+                Rolls.Add(Dice3.DiceRoll(Dice3.Sides));
+                Rolls.Add(Dice4.DiceRoll(Dice4.Sides));
+                Rolls.Add(Dice5.DiceRoll(Dice5.Sides));
+
+                Console.WriteLine("\n\nDit rul: ");
+                //Printer de fem værdier
+                foreach (int Roll in Rolls)
                 {
-                    //Kontrol over rul
-                    for (int i = 1; i <= 3; i++)
-                    {
-                        //Tilføjer 5 tilfældige værdier til listen Rolls
-                        Rolls.Add(Dice1.DiceRoll(Dice1.Sides));
-                        Rolls.Add(Dice2.DiceRoll(Dice2.Sides));
-                        Rolls.Add(Dice3.DiceRoll(Dice3.Sides));
-                        Rolls.Add(Dice4.DiceRoll(Dice4.Sides));
-                        Rolls.Add(Dice5.DiceRoll(Dice5.Sides));
+                    Console.Write(Roll + " ");
+                }
 
-                        Console.WriteLine("Dit rul: ");
-                        //Printer de fem værdier
-                        foreach (int Roll in Rolls)
-                        {
-                            Console.Write(Roll + " ");
-                        }
-                        Console.WriteLine("\n");
-                        Console.WriteLine("Hvad vil du gemme?");
+                Console.WriteLine("\nDu har " + i + " Kast tilbage\n");
+                Console.WriteLine("Hvad vil du gemme?\n");
+                
+                while (Rolls.Count > 0)
+                {
+
+                    Console.WriteLine("Skriv 0 for at slå igen");
+                    try
+                    {
                         RollSelector = Convert.ToInt32(Console.ReadLine());
-                        while (RollSelector != 0 || Rolls.Count > 0)
+                        if (Rolls.Contains(RollSelector))
                         {
-                            
-                            Console.WriteLine("Skriv 0 for at slå igen");
-                            try
+                            SavedRolls.Add(RollSelector);
+                            Rolls.Remove(RollSelector);
+                            Console.WriteLine("Terninger der skal omrulles");
+                            foreach (int Roll in Rolls)
                             {
-                                RollSelector = Convert.ToInt32(Console.ReadLine());
-                                if (Rolls.Contains(RollSelector))
-                                {
-                                    SavedRolls.Add(RollSelector);
-                                    Rolls.Remove(RollSelector);
-                                    Console.WriteLine("Terninger der skal omrulles");
-                                    foreach (int Roll in Rolls)
-                                    {
-                                        Console.Write(Roll + " ");
-                                    }
-                                    Console.WriteLine("\n");
-                                    Console.WriteLine("Terninger du har gemt");
-                                    foreach (int SavedRoll in SavedRolls)
-                                    {
-                                        Console.Write(SavedRoll + " ");
-                                    }
-                                    Console.WriteLine("\n");
-                                }
+                                Console.Write(Roll + " ");
                             }
-                            catch { Console.WriteLine("fejl"); }
+                            Console.WriteLine("\n");
+                            Console.WriteLine("Terninger du har gemt");
+                            foreach (int SavedRoll in SavedRolls)
+                            {
+                                Console.Write(SavedRoll + " ");
+                            }
+                            Console.WriteLine("\n");
+                        } else if (RollSelector == 0)
+                        {
+                            break;
                         }
-                       
-                        
                     }
-                    
-
-                    if (Console.ReadLine() == "done")
-                    {
-                        StartPhase = true;
-                        GameIsOn = false;
-                    }
+                    catch { Console.WriteLine("fejl"); }
+                }
+                Rerolls(ref Rolls, ref Dice1);
+                foreach (int SavedRoll in SavedRolls)
+                {
+                    Rolls.Add(SavedRoll);
                 }
             }
+            Console.WriteLine("Dit endelige rul var: ");
+
+        }
+
+
+        static List<int> Rerolls(ref List<int> Rolls, ref Dice Dice1)
+        {
+            foreach (int Roll in Rolls)
+            {
+                Rolls.Add(Dice1.DiceRoll(Dice1.Sides));
+                Rolls.Remove(Roll); 
+            }
+
+            return Rolls;
         }
     }
 }
