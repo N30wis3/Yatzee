@@ -20,25 +20,25 @@ namespace YahtzeeGame
             ID = id;
             Points = points;
         }
-        static void ScoreBoard(ref List<int> Rolls, ref List<Player> players, ref int PlayerTurn)
+        public void ScoreBoard()
         {
-            Dictionary<int, string> Kombinationer = new Dictionary<int, string>();
+            Dictionary<string, int> Kombinationer = new Dictionary<string, int>();
 
-            Kombinationer.Add(1, "1'ere");
-            Kombinationer.Add(2, "2'ere");
-            Kombinationer.Add(3, "3'ere");
-            Kombinationer.Add(4, "4'ere");
-            Kombinationer.Add(5, "5'ere");
-            Kombinationer.Add(6, "6'ere");
-            Kombinationer.Add(7, "1 par");
-            Kombinationer.Add(8, "2 par");
-            Kombinationer.Add(9, "3 ens");
-            Kombinationer.Add(10, "4 ens");
-            Kombinationer.Add(11, "Lille straight");
-            Kombinationer.Add(12, "Stor straight");
-            Kombinationer.Add(13, "Hus");
-            Kombinationer.Add(14, "Chance");
-            Kombinationer.Add(15, "Yatzy");
+            Kombinationer.Add("1'ere", 0);
+            Kombinationer.Add("2'ere", 0);
+            Kombinationer.Add("3'ere", 0);
+            Kombinationer.Add("4'ere", 0);
+            Kombinationer.Add("5'ere", 0);
+            Kombinationer.Add("6'ere", 0);
+            Kombinationer.Add("1 par", 0);
+            Kombinationer.Add("2 par", 0);
+            Kombinationer.Add("3 ens", 0);
+            Kombinationer.Add("4 ens", 0);
+            Kombinationer.Add("Lille straight", 0);
+            Kombinationer.Add("Stor straight", 0);
+            Kombinationer.Add("Hus", 0);
+            Kombinationer.Add("Chance", 0);
+            Kombinationer.Add("Yatzy", 0);
         }
     }
 }

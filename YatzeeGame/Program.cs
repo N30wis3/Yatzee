@@ -30,6 +30,11 @@ namespace YahtzeeGame
 
             List<Player> Players = new List<Player>();
 
+            Player Dicksen = new Player();
+
+
+            Dicksen.ScoreBoard();
+
             Dictionary<int, string> Kombinationer = new Dictionary<int, string>();
 
             Kombinationer.Add(1, "1'ere");
@@ -181,12 +186,7 @@ namespace YahtzeeGame
 
         static void ScoreBoard(ref List<int> Rolls, ref List<Player> players, ref int PlayerTurn)
         {
-            Console.WriteLine
-                (
-                "-----------------------------------------" + "\n" +
-                "|Navn|" + players[PlayerTurn].Name + "\n" +
-                "1'ere " 
-                );
+            
         }
     }
 }
