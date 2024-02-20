@@ -179,38 +179,38 @@ namespace YahtzeeGame
             }
             while (EtPar == null)
             {
-                if (x != 0 && y != 0)
+
+            }
+            
+            if (x != 0 && y != 0)
+            {
+                Console.WriteLine("Vælg:\n" + "1. " + x.ToString() + " || " + "2. " +  y.ToString());
+                while (EtPar == null)
                 {
-                    Console.WriteLine("Vælg:\n" + "1. " + x.ToString() + " || " + "2. " + y.ToString());
-                    while (EtPar == null)
+                    try
                     {
-                        try
+                        int valg = Convert.ToInt32(Console.ReadLine());
+                        switch (valg)
                         {
-                            int valg = Convert.ToInt32(Console.ReadLine());
-                            switch (valg)
-                            {
-                                case 1:
-                                    EtPar = (x * 2).ToString();
-                                    break;
-                                case 2:
-                                    EtPar = (y * 2).ToString();
-                                    break;
-                                default:
-                                    Console.WriteLine("Fejl");
-                                    break;
-                            }
+                            case 1:
+                                EtPar = (x * 2).ToString();
+                                break;
+                            case 2:
+                                EtPar = (y * 2).ToString();
+                                break;
+                            default:
+                                Console.WriteLine("Fejl");
+                                break;
                         }
-                        catch { Console.WriteLine("Fejl"); }
                     }
+                    catch { Console.WriteLine("Fejl"); }
                 }
-                else if (x != 0)
-                {
-                    EtPar = (x * 2).ToString();
-                }
-                else
-                {
-                    EtPar = "-";
-                }
+            } else if (x != 0)
+            {
+                EtPar = (x * 2).ToString();
+            } else
+            {
+                EtPar = "-";
             }
         }
     }
