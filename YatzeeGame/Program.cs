@@ -250,11 +250,11 @@ namespace YahtzeeGame
                         }
                         break;
                     //Kompliceret
-                    /*
+                    
                 case "7":
-                    if (ScoreBoards[PlayerTurn]. == null)
+                    if (ScoreBoards[PlayerTurn].EtPar == null)
                     {
-                        ScoreBoards[PlayerTurn].(Rolls);
+                        ScoreBoards[PlayerTurn].EtParTjek(Rolls);
                         GyldigtValg = true;
                     }
                         else
@@ -262,103 +262,103 @@ namespace YahtzeeGame
                             Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                         }
                         break;
+                    /*
+            case "8":
+                if (ScoreBoards[PlayerTurn]. == null)
+                {
+                    ScoreBoards[PlayerTurn].(Rolls);
+                    GyldigtValg = true;
+                }
+                    else
+                    {
+                        Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
+                    }
+                    break;
 
-                case "8":
-                    if (ScoreBoards[PlayerTurn]. == null)
+            case "9":
+                if (ScoreBoards[PlayerTurn]. == null)
+                {
+                    ScoreBoards[PlayerTurn].(Rolls);
+                    GyldigtValg = true;
+                }
+                    else
                     {
-                        ScoreBoards[PlayerTurn].(Rolls);
-                        GyldigtValg = true;
+                        Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                     }
-                        else
-                        {
-                            Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
-                        }
-                        break;
+                    break;
 
-                case "9":
-                    if (ScoreBoards[PlayerTurn]. == null)
+            case "10":
+                if (ScoreBoards[PlayerTurn]. == null)
+                {
+                    ScoreBoards[PlayerTurn].(Rolls);
+                    GyldigtValg = true;
+                }
+                    else
                     {
-                        ScoreBoards[PlayerTurn].(Rolls);
-                        GyldigtValg = true;
+                        Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                     }
-                        else
-                        {
-                            Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
-                        }
-                        break;
+                    break;
 
-                case "10":
-                    if (ScoreBoards[PlayerTurn]. == null)
+            case "11":
+                if (ScoreBoards[PlayerTurn]. == null)
+                {
+                    ScoreBoards[PlayerTurn].(Rolls);
+                    GyldigtValg = true;
+                }
+                    else
                     {
-                        ScoreBoards[PlayerTurn].(Rolls);
-                        GyldigtValg = true;
+                        Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                     }
-                        else
-                        {
-                            Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
-                        }
-                        break;
+                    break;
 
-                case "11":
-                    if (ScoreBoards[PlayerTurn]. == null)
+            case "12":
+                if (ScoreBoards[PlayerTurn]. == null)
+                {
+                    ScoreBoards[PlayerTurn].(Rolls);
+                    GyldigtValg = true;
+                }
+                    else
                     {
-                        ScoreBoards[PlayerTurn].(Rolls);
-                        GyldigtValg = true;
+                        Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                     }
-                        else
-                        {
-                            Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
-                        }
-                        break;
+                    break;
 
-                case "12":
-                    if (ScoreBoards[PlayerTurn]. == null)
+            case "13":
+                if (ScoreBoards[PlayerTurn]. == null)
+                {
+                    ScoreBoards[PlayerTurn].(Rolls);
+                    GyldigtValg = true;
+                }
+                    else
                     {
-                        ScoreBoards[PlayerTurn].(Rolls);
-                        GyldigtValg = true;
+                        Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                     }
-                        else
-                        {
-                            Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
-                        }
-                        break;
+                    break;
 
-                case "13":
-                    if (ScoreBoards[PlayerTurn]. == null)
+            case "14":
+                if (ScoreBoards[PlayerTurn]. == null)
+                {
+                    ScoreBoards[PlayerTurn].(Rolls);
+                    GyldigtValg = true;
+                }
+                    else
                     {
-                        ScoreBoards[PlayerTurn].(Rolls);
-                        GyldigtValg = true;
+                        Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                     }
-                        else
-                        {
-                            Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
-                        }
-                        break;
+                    break;
 
-                case "14":
-                    if (ScoreBoards[PlayerTurn]. == null)
+            case "15":
+                if (ScoreBoards[PlayerTurn]. == null)
+                {
+                    ScoreBoards[PlayerTurn].(Rolls);
+                    GyldigtValg = true;
+                }
+                    else
                     {
-                        ScoreBoards[PlayerTurn].(Rolls);
-                        GyldigtValg = true;
+                        Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                     }
-                        else
-                        {
-                            Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
-                        }
-                        break;
-
-                case "15":
-                    if (ScoreBoards[PlayerTurn]. == null)
-                    {
-                        ScoreBoards[PlayerTurn].(Rolls);
-                        GyldigtValg = true;
-                    }
-                        else
-                        {
-                            Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
-                        }
-                        break;
-                    */
+                    break;
+                */
                     default:
                         Console.WriteLine("Retard");
                         break;

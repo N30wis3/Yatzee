@@ -84,9 +84,9 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Etere = x.ToString();
+                Toere = x.ToString();
             }
-            else { Etere = "-"; }
+            else { Toere = "-"; }
         }
 
         public void TreerTjek(List<int> Rolls)
@@ -101,9 +101,9 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Etere = x.ToString();
+                Treere = x.ToString();
             }
-            else { Etere = "-"; }
+            else { Treere = "-"; }
         }
 
         public void FireTjek(List<int> Rolls)
@@ -118,9 +118,9 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Etere = x.ToString();
+                Fireere = x.ToString();
             }
-            else { Etere = "-"; }
+            else { Fireere = "-"; }
         }
 
         public void FemmerTjek(List<int> Rolls)
@@ -135,9 +135,9 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Etere = x.ToString();
+                Femere = x.ToString();
             }
-            else { Etere = "-"; }
+            else { Femere = "-"; }
         }
 
         public void SekserTjek(List<int> Rolls)
@@ -152,9 +152,66 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Etere = x.ToString();
+                Seksere = x.ToString();
             }
-            else { Etere = "-"; }
+            else { Seksere = "-"; }
+        }
+
+        public void EtParTjek (List<int> Rolls)
+        {
+            int x = 0;
+            int y = 0;
+            for (int i = 0;  i < Rolls.Count - 1; i++)
+            {
+                if (Rolls[i] == Rolls[i + 1])
+                {
+                    x = Rolls[i];
+                    i = Rolls.Count;
+                }
+            }
+            for (int i = 0; x < Rolls.Count - 1; x++)
+            {
+                if (Rolls[i] == Rolls[i + 1] && Rolls[i] != x)
+                {
+                    y = Rolls[i];
+                    i = Rolls.Count;
+                }
+            }
+            while (EtPar == null)
+            {
+                if (x != 0 && y != 0)
+                {
+                    Console.WriteLine("Vælg:\n" + "1. " + x.ToString() + " || " + "2. " + y.ToString());
+                    while (EtPar == null)
+                    {
+                        try
+                        {
+                            int valg = Convert.ToInt32(Console.ReadLine());
+                            switch (valg)
+                            {
+                                case 1:
+                                    EtPar = (x * 2).ToString();
+                                    break;
+                                case 2:
+                                    EtPar = (y * 2).ToString();
+                                    break;
+                                default:
+                                    Console.WriteLine("Fejl");
+                                    break;
+                            }
+                        }
+                        catch { Console.WriteLine("Fejl"); }
+                    }
+                }
+                else if (x != 0)
+                {
+                    EtPar = (x * 2).ToString();
+                }
+                else
+                {
+                    EtPar = "-";
+                }
+            }
         }
     }
 }
