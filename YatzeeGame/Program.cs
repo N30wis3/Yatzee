@@ -57,6 +57,7 @@ namespace YahtzeeGame
                         {
                             Console.WriteLine("Spiller " + (i + 1) + " navn: ");
                             string x = Console.ReadLine();
+                            Console.WriteLine("\n");
                             Players.Add(new Player(x, i));
                             ScoreBoards.Add(new ScoreBoard(x));
                         }
