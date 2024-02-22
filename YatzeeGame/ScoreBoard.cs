@@ -163,13 +163,13 @@ namespace YahtzeeGame
             int x = 0;
             foreach (int number in Rolls)
             {
-                if (number == x)
+                if (number == x && !ParEt.Contains(number))
                 {
                     ParEt.Add(number);
                 }
                 x = number;
             }
-            if (ParEt.Count > 2)
+            if (ParEt.Count > 1)
             {
                 while (EtPar == null) 
                 {
@@ -210,19 +210,19 @@ namespace YahtzeeGame
             int x = 0;
             foreach (int number in Rolls)
             {
-                if (number == x)
+                if (number == x && !ParTo.Contains(number))
                 {
                     ParTo.Add(number);
                 }
                 x = number;
             }
-            if (ParTo.Count > 2)
+            if (ParTo.Count > 1)
             {
-                EtPar = ((ParTo[0] * 2) + (ParTo[1] * 2)).ToString(); 
+                ToPar = ((ParTo[0] * 2) + (ParTo[1] * 2)).ToString(); 
             }
             else
             {
-                EtPar = "-";
+                ToPar = "-";
             }
         }
 
@@ -256,7 +256,7 @@ namespace YahtzeeGame
             {
                 FireEns = (x * 4).ToString();
             }
-            else { TreEns = "-"; }
+            else { FireEns = "-"; }
         }
 
         public void LilleStraightTjek(List<int> Rolls)
@@ -276,7 +276,7 @@ namespace YahtzeeGame
             {
                 LilleStraight = (x[0] + x[1] + x[2] + x[3]).ToString();
             }
-            else { TreEns = "-"; }
+            else { LilleStraight = "-"; }
         }        
         
         public void StorStraightTjek(List<int> Rolls)
@@ -292,9 +292,9 @@ namespace YahtzeeGame
             }
             if (x.Count != 0)
             {
-                LilleStraight = (x[0] + x[1] + x[2] + x[3]).ToString();
+                StorStraight = (x[0] + x[1] + x[2] + x[3]).ToString();
             }
-            else { TreEns = "-"; }
+            else { StorStraight = "-"; }
         }
 
         public void HusTjek(List<int> Rolls)
