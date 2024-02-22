@@ -104,7 +104,7 @@ namespace YahtzeeGame
             Rolls.Add(Dice4.DiceRoll(Dice4.Sides));
             Rolls.Add(Dice5.DiceRoll(Dice5.Sides));
 
-            
+            //test
 
             //Kontrol over rul
             for (int i = 2; i > 0; i--)
