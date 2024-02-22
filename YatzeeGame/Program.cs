@@ -72,6 +72,11 @@ namespace YahtzeeGame
                 }
                 for (int PlayerTurn = 0; PlayerTurn < AntalSpillere; PlayerTurn++)
                 {
+                    for (int i = 0; i <= 5; i++)
+                    {
+                        Console.WriteLine("\n"); 
+                    }
+                    Console.WriteLine(ScoreBoards[PlayerTurn].PrintScore());
                     Console.WriteLine("Spiller: " + Players[PlayerTurn].Name);
                     RulMedTerningerne(ref Dice1, ref Dice2, ref Dice3, ref Dice4, ref Dice5, ref Players, ref PlayerTurn, ref ScoreBoards);
                 }
@@ -107,45 +112,75 @@ namespace YahtzeeGame
                 }
 
                 Console.WriteLine("\nDu har " + i + " Kast tilbage\n");
-                Console.WriteLine("Hvad vil du gemme?\n");
-                
-                while (Rolls.Count > 0)
-                {
 
-                    Console.WriteLine("Skriv 0 for at slå igen\n\n\n");
-                    try
+                Console.WriteLine("Vil du rolle om");
+                
+                bool ValidSvar = false;
+                while (ValidSvar == false) 
+                {
+                    string OmRul = Console.ReadLine();
+                    switch (OmRul)
                     {
-                        RollSelector = Convert.ToInt32(Console.ReadLine());
-                        if (Rolls.Contains(RollSelector))
-                        {
-                            SavedRolls.Add(RollSelector);
-                            Rolls.Remove(RollSelector);
-                            Console.WriteLine("Terninger der skal omrulles");
+                        case "Yes" or "yes" or "Y" or "y" or "Ja" or "ja" or "J" or "j" or "1" or "2" or "3" or "4" or "5" or "6":
+                            Console.WriteLine("\n\nHvad vil du gemme?\n");
                             foreach (int Roll in Rolls)
                             {
                                 Console.Write(Roll + " ");
                             }
-                            Console.WriteLine("\n");
-                            Console.WriteLine("Terninger du har gemt");
+                            while (Rolls.Count > 0)
+                            {
+
+                                Console.WriteLine("Skriv 0 for at slå igen\n\n\n");
+                                try
+                                {
+                                    RollSelector = Convert.ToInt32(Console.ReadLine());
+                                    if (Rolls.Contains(RollSelector))
+                                    {
+                                        SavedRolls.Add(RollSelector);
+                                        Rolls.Remove(RollSelector);
+                                        Console.WriteLine("Terninger der skal omrulles");
+                                        foreach (int Roll in Rolls)
+                                        {
+                                            Console.Write(Roll + " ");
+                                        }
+                                        Console.WriteLine("\n");
+                                        Console.WriteLine("Terninger du har gemt");
+                                        foreach (int SavedRoll in SavedRolls)
+                                        {
+                                            Console.Write(SavedRoll + " ");
+                                        }
+                                        Console.WriteLine("\n\n");
+                                    }
+                                    else if (RollSelector == 0)
+                                    {
+                                        break;
+                                    }
+                                }
+                                catch { Console.WriteLine("fejl"); }
+                            }
+                            Rerolls(ref Rolls, ref Dice1);
                             foreach (int SavedRoll in SavedRolls)
                             {
-                                Console.Write(SavedRoll + " ");
+                                Rolls.Add(SavedRoll);
                             }
-                            Console.WriteLine("\n\n");
-                        } else if (RollSelector == 0)
-                        {
+                            SavedRolls.Clear();
+                            ValidSvar = true;
                             break;
-                        }
+                        case "No" or "no" or "Nej" or "nej" or "N" or "n" or "" or " ":
+                            i = 0;
+                            ValidSvar = true;
+                            break;
+
+
                     }
-                    catch { Console.WriteLine("fejl"); }
                 }
-                Rerolls(ref Rolls, ref Dice1);
-                foreach (int SavedRoll in SavedRolls)
-                {
-                    Rolls.Add(SavedRoll);
-                }
-                SavedRolls.Clear();
+                
+
+                
+                
+                
             }
+            Rolls.Sort();
             Console.WriteLine("Dit endelige rul var: ");
             foreach (int Roll in Rolls) { Console.Write(Roll + " "); }
             Console.WriteLine("\n\n");

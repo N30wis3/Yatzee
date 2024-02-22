@@ -159,56 +159,68 @@ namespace YahtzeeGame
 
         public void EtParTjek (List<int> Rolls)
         {
+            List<int> ParEt = new List<int> ();
             int x = 0;
-            int y = 0;
-            for (int i = 0;  i < Rolls.Count - 1; i++)
+            foreach (int number in Rolls)
             {
-                if (Rolls[i] == Rolls[i + 1])
+                if (number == x)
                 {
-                    x = Rolls[i];
-                    i = Rolls.Count;
+                    ParEt.Add(number);
                 }
+                x = number;
             }
-            for (int i = 0; x < Rolls.Count - 1; x++)
+            if (ParEt.Count > 2)
             {
-                if (Rolls[i] == Rolls[i + 1] && Rolls[i] != x)
+                while (EtPar == null) 
                 {
-                    y = Rolls[i];
-                    i = Rolls.Count;
-                }
-            }
-            while (EtPar == null)
-            {
-
-            }
-            
-            if (x != 0 && y != 0)
-            {
-                Console.WriteLine("Vælg:\n" + "1. " + x.ToString() + " || " + "2. " +  y.ToString());
-                while (EtPar == null)
-                {
+                    Console.WriteLine("Du rollede mere end 1 par et. Vælg en: ");
                     try
                     {
-                        int valg = Convert.ToInt32(Console.ReadLine());
-                        switch (valg)
+                        Console.WriteLine("1. " + ParEt[0] + "\n2. " + ParEt[1]);
+                        int ParVælger = Convert.ToInt32(Console.ReadLine());
+                        switch (ParVælger)
                         {
                             case 1:
-                                EtPar = (x * 2).ToString();
-                                break;
+                                EtPar = (ParEt[0] * 2).ToString(); break;
                             case 2:
-                                EtPar = (y * 2).ToString();
-                                break;
+                                EtPar = (ParEt[1] * 2).ToString(); break;
                             default:
-                                Console.WriteLine("Fejl");
+                                Console.WriteLine("Ugyldigt input"); 
                                 break;
                         }
+                    } catch
+                    {
+                        Console.WriteLine("Ugyldigt input");
                     }
-                    catch { Console.WriteLine("Fejl"); }
                 }
-            } else if (x != 0)
+            } else if (ParEt.Count == 1)
             {
-                EtPar = (x * 2).ToString();
-            } else
+                EtPar = (ParEt[0] * 2).ToString();
+            }
+            else
+            {
+                EtPar = "-";
+            }
+        }
+
+
+        public void ToParTjek(List<int> Rolls)
+        {
+            List<int> ParTo = new List<int>();
+            int x = 0;
+            foreach (int number in Rolls)
+            {
+                if (number == x)
+                {
+                    ParTo.Add(number);
+                }
+                x = number;
+            }
+            if (ParTo.Count > 2)
+            {
+                EtPar = ((ParTo[0] * 2) + (ParTo[1] * 2)).ToString(); 
+            }
+            else
             {
                 EtPar = "-";
             }
