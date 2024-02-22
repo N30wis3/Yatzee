@@ -24,10 +24,91 @@ namespace YahtzeeGame
         public string Hus { get; set; }
         public string Chance { get; set; }
         public string Yatzy { get; set; }
+        public int Sum { get; set; }
 
         public ScoreBoard (string player)
         {
             Player = player;
+        }
+
+        public void UdregnSum()
+        {
+            int sum = 0;
+            if (Etere != null && Etere != "-")
+            {
+                sum += Convert.ToInt32(Etere);
+            }            
+            
+            if (Toere != null && Toere != "-")
+            {
+                sum += Convert.ToInt32(Toere);
+            }            
+            
+            if (Treere != null && Treere != "-")
+            {
+                sum += Convert.ToInt32(Treere);
+            }            
+            
+            if (Fireere != null && Fireere != "-")
+            {
+                sum += Convert.ToInt32(Etere);
+            }            
+            
+            if (Femere != null && Femere != "-")
+            {
+                sum += Convert.ToInt32(Femere);
+            }            
+            
+            if (Seksere != null && Seksere != "-")
+            {
+                sum += Convert.ToInt32(Seksere);
+            }            
+            
+            if (EtPar != null && EtPar != "-")
+            {
+                sum += Convert.ToInt32(EtPar);
+            }            
+            
+            if (ToPar != null && ToPar != "-")
+            {
+                sum += Convert.ToInt32(ToPar);
+            }            
+            
+            if (TreEns != null && TreEns != "-")
+            {
+                sum += Convert.ToInt32(TreEns);
+            }            
+            
+            if (FireEns != null && FireEns != "-")
+            {
+                sum += Convert.ToInt32(FireEns);
+            }            
+            
+            if (LilleStraight != null && LilleStraight != "-")
+            {
+                sum += Convert.ToInt32(LilleStraight);
+            }            
+            
+            if (StorStraight != null && StorStraight != "-")
+            {
+                sum += Convert.ToInt32(StorStraight);
+            }            
+            
+            if (Hus != null && Hus != "-")
+            {
+                sum += Convert.ToInt32(Hus);
+            }            
+            
+            if (Chance != null && Chance != "-")
+            {
+                sum += Convert.ToInt32(Chance);
+            }            
+            
+            if (Yatzy != null && Yatzy != "-")
+            {
+                sum += Convert.ToInt32(Yatzy);
+            }
+            Sum = sum;
         }
 
         public string PrintScore()
@@ -49,6 +130,8 @@ namespace YahtzeeGame
             Score += "13. " + "Hus: " + Hus + "\n";
             Score += "14. " + "Chance: " + Chance + "\n";
             Score += "15. " + "YATZY: " + Yatzy + "\n";
+            UdregnSum();
+            Score += "Sum: " + Sum;
 
             return Score;
         }
@@ -301,7 +384,7 @@ namespace YahtzeeGame
         {
             int x = 0;
             int y = 0;
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (Rolls[i] == Rolls[0])
                 {

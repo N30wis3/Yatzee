@@ -88,6 +88,11 @@ namespace YahtzeeGame
                 }
                 
             }
+            for (int i = 1; i <= AntalSpillere; i ++)
+            {
+                Console.WriteLine(ScoreBoards[i].PrintScore());
+                Console.WriteLine("\n\n");
+            }
         }
 
         static void RulMedTerningerne(ref Dice Dice1, ref Dice Dice2, ref Dice Dice3, ref Dice Dice4, ref Dice Dice5, ref List<Player> players, ref int PlayerTurn, ref List<ScoreBoard> ScoreBoards)
@@ -103,8 +108,6 @@ namespace YahtzeeGame
             Rolls.Add(Dice3.DiceRoll(Dice3.Sides));
             Rolls.Add(Dice4.DiceRoll(Dice4.Sides));
             Rolls.Add(Dice5.DiceRoll(Dice5.Sides));
-
-            //test
 
             //Kontrol over rul
             for (int i = 2; i > 0; i--)
@@ -128,11 +131,13 @@ namespace YahtzeeGame
                     switch (OmRul)
                     {
                         case "Yes" or "yes" or "Y" or "y" or "Ja" or "ja" or "J" or "j" or "1" or "2" or "3" or "4" or "5" or "6":
-                            Console.WriteLine("\n\nHvad vil du gemme?\n");
+                            Console.WriteLine("Skriv individuel terning du vil gemme");
                             foreach (int Roll in Rolls)
                             {
                                 Console.Write(Roll + " ");
                             }
+                            Console.WriteLine("\n\nHvad vil du gemme?\n");
+
                             while (Rolls.Count > 0)
                             {
 
@@ -176,8 +181,6 @@ namespace YahtzeeGame
                             i = 0;
                             ValidSvar = true;
                             break;
-
-
                     }
                 }
                 
@@ -191,7 +194,6 @@ namespace YahtzeeGame
             foreach (int Roll in Rolls) { Console.Write(Roll + " "); }
             Console.WriteLine("\n\n");
             ScoreChoice(ref Rolls, ref players, ref PlayerTurn, ref ScoreBoards);
-
         }
 
 
@@ -316,7 +318,7 @@ namespace YahtzeeGame
                     }
                     break;
                        
-                    case "9":
+                    case "9" or "Tre ens" or "tre ens" or "3 ens" or "3 Ens" or "3Ens" or "3ens" or "3e" or "3E" or "3 e" or "3 E":
                         if (ScoreBoards[PlayerTurn].TreEns == null)
                         {
                             ScoreBoards[PlayerTurn].TreEnsTjek(Rolls);
@@ -328,7 +330,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "10":
+                    case "10" or "Fire ens" or "Fire Ens" or "4 ens" or "4 Ens" or "4ens" or "4Ens" or "4e" or "4E" or "4 e" or "4 E":
                         if (ScoreBoards[PlayerTurn].FireEns == null)
                         {
                             ScoreBoards[PlayerTurn].FireEnsTjek(Rolls);
@@ -340,7 +342,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "11":
+                    case "11" or "lille" or "Lille" or "l" or "L" or "lstraight" or "Lstraight" or "lStraight" or "LStraight" or "Lille straight" or "lille straight" or "Lille Straight" or "lille Straight":
                         if (ScoreBoards[PlayerTurn].LilleStraight == null)
                         {
                             ScoreBoards[PlayerTurn].LilleStraightTjek(Rolls);
@@ -352,7 +354,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "12":
+                    case "12" or "stor" or "Stor" or "S" or "s" or "sstraight" or "Sstraight" or "sStraight" or "SStraight" or "Stor straight" or "stor straight" or "stor Straight" or "stor Straight":
                         if (ScoreBoards[PlayerTurn].StorStraight == null)
                         {
                             ScoreBoards[PlayerTurn].StorStraightTjek(Rolls);
@@ -364,7 +366,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "13":
+                    case "13" or "hus" or "Hus" or "house" or "House" or "h" or "H":
                         if (ScoreBoards[PlayerTurn].Hus == null)
                         {
                             ScoreBoards[PlayerTurn].HusTjek(Rolls);
@@ -376,7 +378,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "14":
+                    case "14" or "Chance" or "chance" or "C" or "c":
                         if (ScoreBoards[PlayerTurn].Chance == null)
                         {
                             ScoreBoards[PlayerTurn].ChanceValg(Rolls);
@@ -388,7 +390,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "15":
+                    case "15" or "Yatzy" or "yatzy" or "y" or "Y":
                         if (ScoreBoards[PlayerTurn].Yatzy == null)
                         {
                             ScoreBoards[PlayerTurn].YatzyTjek(Rolls);
