@@ -35,7 +35,6 @@ namespace YahtzeeGame
             List<Player> Players = new List<Player>();
             List<ScoreBoard> ScoreBoards = new List<ScoreBoard>();
 
-
             while (Yahtzee == true) 
             {
                 while (StartPhase == true)
@@ -46,7 +45,7 @@ namespace YahtzeeGame
                         AntalSpillere = Convert.ToInt32(Console.ReadLine());
                         if (AntalSpillere < 2)
                         {
-                            AntalSpillere = 2;
+                            AntalSpillere = 2; 
                         } else if (AntalSpillere > 10)
                         {
                             AntalSpillere = 10;
