@@ -84,7 +84,7 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Toere = x.ToString();
+                Toere = (x * 2).ToString();
             }
             else { Toere = "-"; }
         }
@@ -101,7 +101,7 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Treere = x.ToString();
+                Treere = (x * 3).ToString();
             }
             else { Treere = "-"; }
         }
@@ -118,7 +118,7 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Fireere = x.ToString();
+                Fireere = (x * 4).ToString();
             }
             else { Fireere = "-"; }
         }
@@ -135,7 +135,7 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Femere = x.ToString();
+                Femere = (x * 5).ToString();
             }
             else { Femere = "-"; }
         }
@@ -152,7 +152,7 @@ namespace YahtzeeGame
             }
             if (x > 0)
             {
-                Seksere = x.ToString();
+                Seksere = (x * 6).ToString();
             }
             else { Seksere = "-"; }
         }
@@ -223,6 +223,137 @@ namespace YahtzeeGame
             else
             {
                 EtPar = "-";
+            }
+        }
+
+        public void TreEnsTjek(List<int> Rolls)
+        {
+            int x = 0;
+            for (int i = 0; i < Rolls.Count - 2; i++)
+            {
+                if (Rolls[i] == Rolls[i + 1] && Rolls[i] == Rolls[i + 2])
+                {
+                    x = Rolls[i];
+                }
+            }
+            if (x != 0)
+            {
+                TreEns = (x * 3).ToString();
+            } else { TreEns = "-"; }
+        }
+
+        public void FireEnsTjek(List<int> Rolls)
+        {
+            int x = 0;
+            for (int i = 0; i < Rolls.Count - 3; i++)
+            {
+                if (Rolls[i] == Rolls[i + 1] && Rolls[i] == Rolls[i + 2] && Rolls[i] == Rolls[i + 3])
+                {
+                    x = Rolls[i];
+                }
+            }
+            if (x != 0)
+            {
+                FireEns = (x * 4).ToString();
+            }
+            else { TreEns = "-"; }
+        }
+
+        public void LilleStraightTjek(List<int> Rolls)
+        {
+            List<int> x = new List<int>();
+            for (int i = 0; i < Rolls.Count - 3; i++)
+            {
+                if (Rolls[i + 3] - Rolls[i + 2] == 1 && Rolls[i + 2] - Rolls[i + 1] == 1 && Rolls[i + 1] - Rolls[i] == 1)
+                {
+                    x.Add(Rolls[i]);
+                    x.Add(Rolls[i + 1]);
+                    x.Add(Rolls[i + 2]);
+                    x.Add(Rolls[i + 3]);
+                }
+            }
+            if (x.Count != 0)
+            {
+                LilleStraight = (x[0] + x[1] + x[2] + x[3]).ToString();
+            }
+            else { TreEns = "-"; }
+        }        
+        
+        public void StorStraightTjek(List<int> Rolls)
+        {
+            List<int> x = new List<int>();
+            if (Rolls[4] - Rolls[3] == 1 && Rolls[3] - Rolls[2] == 1 && Rolls[2] - Rolls[1] == 1 && Rolls[1] - Rolls[0] == 1)
+            {
+                x.Add(Rolls[0]);
+                x.Add(Rolls[1]);
+                x.Add(Rolls[2]);
+                x.Add(Rolls[3]);
+                x.Add(Rolls[4]);
+            }
+            if (x.Count != 0)
+            {
+                LilleStraight = (x[0] + x[1] + x[2] + x[3]).ToString();
+            }
+            else { TreEns = "-"; }
+        }
+
+        public void HusTjek(List<int> Rolls)
+        {
+            int x = 0;
+            int y = 0;
+            for (int i = 0; i < 7; i++)
+            {
+                if (Rolls[i] == Rolls[0])
+                {
+                    x++;
+                } else if (Rolls[i] == Rolls[4])
+                {
+                    y++;
+                }
+            }
+            if (x == 3 && y == 2)
+            {
+                Hus = ((x * 3) + (y * 2)).ToString();
+            }else if (x == 2 && y == 3)
+            {
+                Hus = ((x * 2) + (y * 3)).ToString();
+            }
+            else
+            {
+                Hus = "-";
+            }
+            
+        }
+
+        public void ChanceValg(List<int> Rolls)
+        {
+            while (Chance == null)
+            {
+                Console.WriteLine("(1.)Streg eller (2.)Indsæt værdi");
+                string valg = Console.ReadLine();
+                switch (valg)
+                {
+                    case "1" or "1." or "Streg" or "streg":
+                        Chance = "-";
+                        break;
+                    case "2" or "2." or "ind" or "Ind" or "indsæt" or "Indsæt" or "indsæt værdi" or "Indsæt værdi":
+                        Chance = (Rolls[0] + Rolls[1] + Rolls[2] + Rolls[3] + Rolls[4]).ToString();
+                        break;
+                    default:
+                        Console.WriteLine("Ugyldig værdi");
+                        break;
+                }
+            }
+        }
+
+        public void YatzyTjek(List<int> Rolls)
+        {
+            if (Rolls[0] == Rolls[1] && Rolls[0] == Rolls[2] && Rolls[0] == Rolls[3] && Rolls[0] == Rolls[4])
+            {
+                Yatzy = "50";
+            } else
+            {
+                Yatzy = "-";
             }
         }
     }

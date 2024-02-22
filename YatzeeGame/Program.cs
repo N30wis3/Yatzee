@@ -213,7 +213,7 @@ namespace YahtzeeGame
                 switch (x)
                 {
                     //Basalt
-                    case "1":
+                    case "1" or "1'ere" or "1ere" or "1 ere":
                         if (ScoreBoards[PlayerTurn].Etere == null)
                         {
                             ScoreBoards[PlayerTurn].EterTjek(Rolls);
@@ -225,7 +225,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "2":
+                    case "2" or "2'ere" or "2ere" or "3 ere":
                         if (ScoreBoards[PlayerTurn].Toere == null)
                         {
                             ScoreBoards[PlayerTurn].ToerTjek(Rolls);
@@ -237,7 +237,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "3":
+                    case "3" or "3'ere" or "3ere" or "3 ere":
                         if (ScoreBoards[PlayerTurn].Treere == null)
                         {
                             ScoreBoards[PlayerTurn].TreerTjek(Rolls);
@@ -249,7 +249,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "4":
+                    case "4" or "4'ere" or "4ere" or "4 ere":
                         if (ScoreBoards[PlayerTurn].Fireere == null)
                         {
                             ScoreBoards[PlayerTurn].FireTjek(Rolls);
@@ -261,7 +261,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "5":
+                    case "5" or "5'ere" or "5ere" or "5 ere":
                         if (ScoreBoards[PlayerTurn].Femere == null)
                         {
                             ScoreBoards[PlayerTurn].FemmerTjek(Rolls);
@@ -273,7 +273,7 @@ namespace YahtzeeGame
                         }
                         break;
 
-                    case "6":
+                    case "6" or "6'ere" or "6ere" or "6 ere":
                         if (ScoreBoards[PlayerTurn].Seksere == null)
                         {
                             ScoreBoards[PlayerTurn].SekserTjek(Rolls);
@@ -286,30 +286,30 @@ namespace YahtzeeGame
                         break;
                     //Kompliceret
                     
-                case "7":
-                    if (ScoreBoards[PlayerTurn].EtPar == null)
-                    {
-                        ScoreBoards[PlayerTurn].EtParTjek(Rolls);
-                        GyldigtValg = true;
-                    }
+                    case "7" or "Et par" or "et par" or "EtPar" or "etpar" or "1 par" or "1 Par" or "1p" or "1P" or "1 p" or "1 P":
+                        if (ScoreBoards[PlayerTurn].EtPar == null)
+                        {
+                            ScoreBoards[PlayerTurn].EtParTjek(Rolls);
+                            GyldigtValg = true;
+                        }
                         else
                         {
                             Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                         }
                         break;
-                    /*
-            case "8":
-                if (ScoreBoards[PlayerTurn]. == null)
-                {
-                    ScoreBoards[PlayerTurn].(Rolls);
-                    GyldigtValg = true;
-                }
-                    else
+                    
+                    case "8" or "To par" or "to par" or "2 par" or "ToPar" or "Topar" or "topar" or "2 p" or "2 P" or "2p" or "2P":
+                        if (ScoreBoards[PlayerTurn].ToPar == null)
+                        {
+                            ScoreBoards[PlayerTurn].ToParTjek(Rolls);
+                            GyldigtValg = true;
+                        }
+                        else
                     {
                         Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                     }
                     break;
-
+                        /*
             case "9":
                 if (ScoreBoards[PlayerTurn]. == null)
                 {
