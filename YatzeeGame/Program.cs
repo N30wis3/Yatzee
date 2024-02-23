@@ -403,7 +403,7 @@ namespace YahtzeeGame
                         break;
                 
                     default:
-                        Console.WriteLine("Retard");
+                        Console.WriteLine("Dit valg er ugyldigt, prøv et andet");
                         break;
                         }
             }

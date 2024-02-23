@@ -171,7 +171,7 @@ namespace YahtzeeGame
             }
             else { Toere = "-"; }
         }
-
+        //3
         public void TreerTjek(List<int> Rolls)
         {
             int x = 0;
@@ -188,7 +188,7 @@ namespace YahtzeeGame
             }
             else { Treere = "-"; }
         }
-
+        //4
         public void FireTjek(List<int> Rolls)
         {
             int x = 0;
@@ -205,7 +205,7 @@ namespace YahtzeeGame
             }
             else { Fireere = "-"; }
         }
-
+        //5
         public void FemmerTjek(List<int> Rolls)
         {
             int x = 0;
@@ -222,7 +222,7 @@ namespace YahtzeeGame
             }
             else { Femere = "-"; }
         }
-
+        //6
         public void SekserTjek(List<int> Rolls)
         {
             int x = 0;
@@ -239,7 +239,7 @@ namespace YahtzeeGame
             }
             else { Seksere = "-"; }
         }
-
+        //1 par
         public void EtParTjek (List<int> Rolls)
         {
             List<int> ParEt = new List<int> ();
@@ -286,7 +286,7 @@ namespace YahtzeeGame
             }
         }
 
-
+        //2 par
         public void ToParTjek(List<int> Rolls)
         {
             List<int> ParTo = new List<int>();
@@ -308,7 +308,7 @@ namespace YahtzeeGame
                 ToPar = "-";
             }
         }
-
+        //3 ens
         public void TreEnsTjek(List<int> Rolls)
         {
             int x = 0;
@@ -324,7 +324,7 @@ namespace YahtzeeGame
                 TreEns = (x * 3).ToString();
             } else { TreEns = "-"; }
         }
-
+        //4 ens
         public void FireEnsTjek(List<int> Rolls)
         {
             int x = 0;
@@ -341,7 +341,7 @@ namespace YahtzeeGame
             }
             else { FireEns = "-"; }
         }
-
+        //lille straight
         public void LilleStraightTjek(List<int> Rolls)
         {
             List<int> x = new List<int>();
@@ -361,7 +361,7 @@ namespace YahtzeeGame
             }
             else { LilleStraight = "-"; }
         }        
-        
+        //stor straight
         public void StorStraightTjek(List<int> Rolls)
         {
             List<int> x = new List<int>();
@@ -379,7 +379,7 @@ namespace YahtzeeGame
             }
             else { StorStraight = "-"; }
         }
-
+        //hus
         public void HusTjek(List<int> Rolls)
         {
             int x = 0;
@@ -407,7 +407,7 @@ namespace YahtzeeGame
             }
             
         }
-
+        //chance
         public void ChanceValg(List<int> Rolls)
         {
             while (Chance == null)
@@ -428,7 +428,7 @@ namespace YahtzeeGame
                 }
             }
         }
-
+        //yatzy
         public void YatzyTjek(List<int> Rolls)
         {
             if (Rolls[0] == Rolls[1] && Rolls[0] == Rolls[2] && Rolls[0] == Rolls[3] && Rolls[0] == Rolls[4])
